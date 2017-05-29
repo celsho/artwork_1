@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html class="uk-height-1-1">
+  <head>
+    <meta charset="UTF-8"></meta>
+    <meta http-equiv="X-UA-Compatible", content="IE=edge"></meta>
+    <meta name="language", content="zh_TW"></meta>
+    <meta name="viewport", content="width=device-width, initial-scale=1, minimum-scale=1"></meta>
+    
+    <title>--------------</title>
+    <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.11.0/axios.min.js'></script>
+    <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.min.js'></script>
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.24/css/uikit.min.css" />
+    <!-- jQuery is required -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+    <!-- UIkit JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.24/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.24/js/uikit-icons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.5.0/bluebird.min.js"></script>
+    <style type='text/css'>@-webkit-keyframes uil-default-anim { 0% { opacity: 1} 100% {opacity: 0} }@keyframes uil-default-anim { 0% { opacity: 1} 100% {opacity: 0} }.uil-default-css > div:nth-of-type(1){-webkit-animation: uil-default-anim 1s linear infinite;animation: uil-default-anim 1s linear infinite;-webkit-animation-delay: -1s;animation-delay: -1s;}.uil-default-css { position: relative;background:none;width:200px;height:200px;}.uil-default-css > div:nth-of-type(2){-webkit-animation: uil-default-anim 1s linear infinite;animation: uil-default-anim 1s linear infinite;-webkit-animation-delay: -0.9166666666666666s;animation-delay: -0.9166666666666666s;}.uil-default-css { position: relative;background:none;width:200px;height:200px;}.uil-default-css > div:nth-of-type(3){-webkit-animation: uil-default-anim 1s linear infinite;animation: uil-default-anim 1s linear infinite;-webkit-animation-delay: -0.8333333333333334s;animation-delay: -0.8333333333333334s;}.uil-default-css { position: relative;background:none;width:200px;height:200px;}.uil-default-css > div:nth-of-type(4){-webkit-animation: uil-default-anim 1s linear infinite;animation: uil-default-anim 1s linear infinite;-webkit-animation-delay: -0.75s;animation-delay: -0.75s;}.uil-default-css { position: relative;background:none;width:200px;height:200px;}.uil-default-css > div:nth-of-type(5){-webkit-animation: uil-default-anim 1s linear infinite;animation: uil-default-anim 1s linear infinite;-webkit-animation-delay: -0.6666666666666666s;animation-delay: -0.6666666666666666s;}.uil-default-css { position: relative;background:none;width:200px;height:200px;}.uil-default-css > div:nth-of-type(6){-webkit-animation: uil-default-anim 1s linear infinite;animation: uil-default-anim 1s linear infinite;-webkit-animation-delay: -0.5833333333333334s;animation-delay: -0.5833333333333334s;}.uil-default-css { position: relative;background:none;width:200px;height:200px;}.uil-default-css > div:nth-of-type(7){-webkit-animation: uil-default-anim 1s linear infinite;animation: uil-default-anim 1s linear infinite;-webkit-animation-delay: -0.5s;animation-delay: -0.5s;}.uil-default-css { position: relative;background:none;width:200px;height:200px;}.uil-default-css > div:nth-of-type(8){-webkit-animation: uil-default-anim 1s linear infinite;animation: uil-default-anim 1s linear infinite;-webkit-animation-delay: -0.4166666666666667s;animation-delay: -0.4166666666666667s;}.uil-default-css { position: relative;background:none;width:200px;height:200px;}.uil-default-css > div:nth-of-type(9){-webkit-animation: uil-default-anim 1s linear infinite;animation: uil-default-anim 1s linear infinite;-webkit-animation-delay: -0.3333333333333333s;animation-delay: -0.3333333333333333s;}.uil-default-css { position: relative;background:none;width:200px;height:200px;}.uil-default-css > div:nth-of-type(10){-webkit-animation: uil-default-anim 1s linear infinite;animation: uil-default-anim 1s linear infinite;-webkit-animation-delay: -0.25s;animation-delay: -0.25s;}.uil-default-css { position: relative;background:none;width:200px;height:200px;}.uil-default-css > div:nth-of-type(11){-webkit-animation: uil-default-anim 1s linear infinite;animation: uil-default-anim 1s linear infinite;-webkit-animation-delay: -0.16666666666666666s;animation-delay: -0.16666666666666666s;}.uil-default-css { position: relative;background:none;width:200px;height:200px;}.uil-default-css > div:nth-of-type(12){-webkit-animation: uil-default-anim 1s linear infinite;animation: uil-default-anim 1s linear infinite;-webkit-animation-delay: -0.08333333333333333s;animation-delay: -0.08333333333333333s;}.uil-default-css { position: relative;background:none;width:200px;height:200px;}</style>
+  </head>
+  <body class="uk-height-1-1 uk-padding-remove">
+    <div class="uk-width-1-1 uk-height-1-1 uk-margin-xlarge-top uk-margin-xlarge-bottom" uk-grid>
+      <div class="uk-width-1-1">
+        <div class="uk-text-center " >
+          <h2>何韋霆能當一位藝術家嗎？</h2>
+        </div>
+      </div>
+      <div id="canvas-holder" class="uk-width-1-1 uk-height-large ">
+        <div id="spinner" class="uk-height-max-medium" >
+          <!-- <div style="height: 60px"></div> -->
+          <div class='uil-default-css uk-align-center uk-height-max-medium' style='transform:scale(0.6);'><div style='top:230px;left:93px;width:10px;height:10px;background:#78909C;-webkit-transform:rotate(0deg) translate(0,-60px);transform:rotate(0deg) translate(0,-60px);border-radius:10px;position:absolute;'></div><div style='top:230px;left:93px;width:10px;height:10px;background:#78909C;-webkit-transform:rotate(30deg) translate(0,-60px);transform:rotate(30deg) translate(0,-60px);border-radius:10px;position:absolute;'></div><div style='top:230px;left:93px;width:10px;height:10px;background:#78909C;-webkit-transform:rotate(60deg) translate(0,-60px);transform:rotate(60deg) translate(0,-60px);border-radius:10px;position:absolute;'></div><div style='top:230px;left:93px;width:10px;height:10px;background:#78909C;-webkit-transform:rotate(90deg) translate(0,-60px);transform:rotate(90deg) translate(0,-60px);border-radius:10px;position:absolute;'></div><div style='top:230px;left:93px;width:10px;height:10px;background:#78909C;-webkit-transform:rotate(120deg) translate(0,-60px);transform:rotate(120deg) translate(0,-60px);border-radius:10px;position:absolute;'></div><div style='top:230px;left:93px;width:10px;height:10px;background:#78909C;-webkit-transform:rotate(150deg) translate(0,-60px);transform:rotate(150deg) translate(0,-60px);border-radius:10px;position:absolute;'></div><div style='top:230px;left:93px;width:10px;height:10px;background:#78909C;-webkit-transform:rotate(180deg) translate(0,-60px);transform:rotate(180deg) translate(0,-60px);border-radius:10px;position:absolute;'></div><div style='top:230px;left:93px;width:10px;height:10px;background:#78909C;-webkit-transform:rotate(210deg) translate(0,-60px);transform:rotate(210deg) translate(0,-60px);border-radius:10px;position:absolute;'></div><div style='top:230px;left:93px;width:10px;height:10px;background:#78909C;-webkit-transform:rotate(240deg) translate(0,-60px);transform:rotate(240deg) translate(0,-60px);border-radius:10px;position:absolute;'></div><div style='top:230px;left:93px;width:10px;height:10px;background:#78909C;-webkit-transform:rotate(270deg) translate(0,-60px);transform:rotate(270deg) translate(0,-60px);border-radius:10px;position:absolute;'></div><div style='top:230px;left:93px;width:10px;height:10px;background:#78909C;-webkit-transform:rotate(300deg) translate(0,-60px);transform:rotate(300deg) translate(0,-60px);border-radius:10px;position:absolute;'></div><div style='top:230px;left:93px;width:10px;height:10px;background:#78909C;-webkit-transform:rotate(330deg) translate(0,-60px);transform:rotate(330deg) translate(0,-60px);border-radius:10px;position:absolute;'></div></div>
+        </div>
+        <canvas id="chart-area" class="uk-align-center uk-height-max-medium"/></canvas>
+      </div>
+      <div class="uk-width-1-5"></div>
+      <div id="yesLength" class='responsive-block uk-width-1-5 uk-text-center' style="color:#66BB6A " ></div>
+      <div id="totalLength" class='responsive-block uk-width-1-5 uk-text-center' ></div>
+      <div id="noLength"  class='responsive-block uk-width-1-5 uk-text-center' style="color:#EF5350" ></div>
+      <div class="uk-width-1-5 uk-height-small"></div>
+
+      <div class="uk-width-1-1" style="background-color:#ECEFF1">
+        <div class="uk-flex uk-flex-center uk-flex-middle uk-height-small ">
+          <h3 style="color: #5C6BC0">Q: 何韋霆能當一位藝術家嗎？</h3>
+        </div>
+      </div>
+
+      <div class="uk-width-1-2 uk-height-small" style="background-color:#ECEFF1">
+        <button id='可以' class="uk-button uk-button-large uk-align-center " style="background-color:#66BB6A; color: white; border-radius:5px">
+        可以
+        </button>
+      </div>
+
+      <div class="uk-width-1-2 uk-height-small" style="background-color:#ECEFF1">
+        <button id='無法' class="uk-button uk-button-danger uk-button-large uk-align-center" style="background-color:#EF5350; color: white; border-radius:5px">
+        無法
+        </button>
+      </div>
+
+      <div></div>
+
+      <footer class="uk-width-1-1 uk-background-secondary uk-flex uk-flex-right uk-flex-middle" style="position: fixed; bottom: 0px;opacity:0.5; height: 35px">
+          <span class="" style="padding-right: 25px">
+          作品名稱／何韋霆／2017
+          </span>
+      </footer>
+
+
+
+      
+
+    
+    <script type="text/javascript" src='./art.js'></script>
+  </body>
+</html>
